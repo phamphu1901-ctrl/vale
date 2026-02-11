@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gửi Em ❤️</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to top, #ff758c, #ff7eb3);
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    text-align:center;
+    color:white;
+}
+
+.container{
+    padding:20px;
+    max-width:400px;
+}
+
+h1{
+    font-size:28px;
+    margin-bottom:15px;
+    animation: glow 2s infinite alternate;
+}
+
+p{
+    font-size:18px;
+    line-height:1.6;
+}
+
+button{
+    margin-top:20px;
+    padding:10px 20px;
+    border:none;
+    border-radius:20px;
+    font-size:16px;
+    background:white;
+    color:#ff4b6e;
+    cursor:pointer;
+}
+
+.heart{
+    position:fixed;
+    bottom:-10px;
+    font-size:20px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(0) scale(1);}
+    100%{transform:translateY(-110vh) scale(1.5);}
+}
+
+@keyframes glow{
+    from{ text-shadow:0 0 5px #fff;}
+    to{ text-shadow:0 0 20px red;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Happy Valentine ❤️</h1>
+    <p>
+        Gửi em – người đặc biệt nhất trong lòng anh 💌 <br>
+        Cảm ơn em vì đã xuất hiện và làm thế giới của anh dịu dàng hơn.
+    </p>
+
+    <button onclick="playMusic()">Bấm vào đây nhé ❤️</button>
+</div>
+
+<audio id="music">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+</audio>
+
+<script>
+function playMusic(){
+    document.getElementById("music").play();
+}
+
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(Math.random()*20+15)+"px";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+}
+
+setInterval(createHeart,500);
+</script>
+
+</body>
+</html>
